@@ -8,9 +8,7 @@ export const fetchAiResponse = async (
   messages: ChatMessage[],
   settings: ApiSettings
 ): Promise<{ text: string; sources: { title: string; url: string }[] }> => {
-  // Always use const ai = new GoogleGenAI({apiKey: process.env.API_KEY});
-  // Creating a new instance right before the call ensures the most up-to-date API key is used.
-  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+  const ai = new GoogleGenAI({ apiKey: import.meta.env.VITE_GEMINI_API_KEY });
   
   // Map roles: 'assistant' -> 'model', 'user' -> 'user' as per Gemini API requirements
   const contents = messages.map(m => ({
@@ -20,7 +18,7 @@ export const fetchAiResponse = async (
 
   // Use ai.models.generateContent to query GenAI with model and prompt configuration
   const response = await ai.models.generateContent({
-    model: settings.model || 'gemini-3-pro-preview',
+    model: settings.model || 'gemini-1.5-flash',
     contents: contents,
     config: {
       systemInstruction: SYSTEM_PROMPT,
