@@ -1,5 +1,5 @@
 
-export const DEFAULT_MODEL = 'gemini-3-pro-preview';
+export const DEFAULT_MODEL = 'gemini-1.5-flash';
 export const TAVILY_API_URL = 'https://api.tavily.com/search';
 
 export const SYSTEM_PROMPT = `You are a Senior Autonomous AI Coding Agent. Your mission is to provide production-ready code, architectural specifications, and debugging solutions.

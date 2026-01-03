@@ -64,10 +64,17 @@ const App: React.FC = () => {
         setCurrentCode(extracted);
       }
     } catch (err: any) {
+      let errorMessage = `Connection Error: ${err.message}. Ensure your local .env.local file contains a valid VITE_GEMINI_API_KEY.`;
+      
+      // Check for quota exceeded error
+      if (err.message && err.message.includes('RESOURCE_EXHAUSTED') || err.message.includes('quota') || err.message.includes('insufficient_quota')) {
+        errorMessage = `Quota exceeded for the current model. Try switching to a different model in settings or upgrade your Google AI plan at https://ai.google.dev.`;
+      }
+      
       setMessages(prev => [...prev, {
         id: Date.now().toString(),
         role: 'assistant',
-        content: `Connection Error: ${err.message}. Ensure your local .env file contains a valid API_KEY.`,
+        content: errorMessage,
         timestamp: Date.now()
       }]);
     } finally {
