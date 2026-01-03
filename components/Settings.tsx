@@ -24,8 +24,9 @@ const Settings: React.FC<SettingsProps> = ({ settings, onSave }) => {
           onChange={(e) => setLocalSettings({ ...localSettings, model: e.target.value })}
           className="w-full rounded-lg border border-[#30363d] bg-[#0d1117] px-3 py-2 text-sm text-[#c9d1d9] focus:border-[#1f6feb] focus:outline-none transition-colors appearance-none"
         >
-          <option value="gemini-3-pro-preview">Gemini 3 Pro (High Quality)</option>
-          <option value="gemini-3-flash-preview">Gemini 3 Flash (Fast)</option>
+          <option value="gemini-1.5-flash">Gemini 1.5 Flash (Fast & Cheap)</option>
+          <option value="gemini-1.5-pro">Gemini 1.5 Pro (High Quality)</option>
+          <option value="gemini-pro">Gemini Pro (Legacy)</option>
         </select>
       </div>
 
