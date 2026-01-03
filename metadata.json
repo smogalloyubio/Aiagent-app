@@ -1,0 +1,8 @@
+{
+  "name": "DevAgent - Autonomous AI Architect",
+  "description": "An autonomous AI coding agent optimized for modern implementation plans and technical specifications.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
